@@ -19,3 +19,12 @@ gradle-app.setting
 .project
 # JDT-specific (Eclipse Java Development Tools)
 .classpath
+
+# --- JetBrains IDEs (IntelliJ Platform: GoLand/IDEA/PyCharm/etc.) ---
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+# IntelliJ-based IDE JVM crash logs (rare, but can appear)
+hs_err_pid*
