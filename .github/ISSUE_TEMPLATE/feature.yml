@@ -1,0 +1,119 @@
+name: Feature
+description: User-facing capability or internal capability enabling user value.
+title: "[Feature]: "
+labels: ["feature"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Feature requests should describe the user value and what “done” looks like.**
+        Keep it small enough to ship, or split into milestones / follow-ups.
+
+  # Minimal required info (so the template stays usable)
+  - type: input
+    id: problem
+    attributes:
+      label: Problem / User need
+      description: What user pain or goal are we addressing?
+      placeholder: "Users need module param autocomplete from an offline cache."
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria (what “done” means)
+      description: Bullet list; Given/When/Then is great but not required.
+      placeholder: |
+        - User can …
+        - When … then …
+        - Edge cases: …
+    validations:
+      required: true
+
+  # Optional-but-helpful structure
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope (optional)
+      description: Clarify in-scope vs out-of-scope to prevent scope creep.
+      placeholder: |
+        In:
+        - …
+        Out:
+        - …
+    validations:
+      required: false
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority (optional)
+      description: Rough ordering to help planning.
+      options:
+        - P0 - Urgent / blocking
+        - P1 - High
+        - P2 - Medium
+        - P3 - Low / nice-to-have
+    validations:
+      required: false
+
+  - type: textarea
+    id: ux
+    attributes:
+      label: UX / behavior notes (optional)
+      description: Screens, flows, UX expectations, error messages, etc.
+      placeholder: |
+        - UI entry point: …
+        - Expected behavior: …
+        - Empty / error state: …
+    validations:
+      required: false
+
+  - type: textarea
+    id: tech
+    attributes:
+      label: Implementation notes (optional)
+      description: Technical hints, constraints, or suggested approach (not a commitment).
+      placeholder: "Possible approach: …"
+    validations:
+      required: false
+
+  - type: textarea
+    id: test
+    attributes:
+      label: Test plan (optional)
+      description: How to verify this works. Add at least one manual scenario if you can.
+      placeholder: |
+        Manual:
+        - …
+
+        Automated:
+        - Unit tests: …
+        - Integration tests: …
+    validations:
+      required: false
+
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies / related issues (optional)
+      description: Links to epics, spikes, bugs, external references.
+      placeholder: |
+        - Related: #…
+        - Depends on: #…
+        - Reference: <link>
+    validations:
+      required: false
+
+  - type: textarea
+    id: rollout
+    attributes:
+      label: Rollout / compatibility (optional)
+      description: Anything that affects release notes, migration, or backwards compatibility.
+      placeholder: |
+        - Behind a flag? …
+        - Compatibility concerns: …
+        - Release note: …
+    validations:
+      required: false
