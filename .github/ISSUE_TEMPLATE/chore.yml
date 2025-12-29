@@ -1,0 +1,124 @@
+name: Chore
+description: Maintenance, refactoring, tooling, docs, CI, or cleanup work (no user-facing feature).
+title: "[Chore]: "
+labels: ["chore"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Chores improve the health of the project** (DX, CI, refactors, docs, dependencies).
+        If this changes user-visible behavior, consider a **Feature** or **Bug** instead.
+
+  # Minimal required info
+  - type: input
+    id: summary
+    attributes:
+      label: Summary
+      description: A short description of the maintenance work.
+      placeholder: "Refactor completion code to reduce duplication and improve testability"
+    validations:
+      required: true
+
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Motivation / why now
+      description: What problem does this address? (tech debt, flakiness, slow builds, etc.)
+      placeholder: |
+        - Current pain: …
+        - Why it matters: …
+    validations:
+      required: true
+
+  # Optional structure to make chores actionable but not burdensome
+  - type: dropdown
+    id: chore_type
+    attributes:
+      label: Type (optional)
+      options:
+        - Refactor / cleanup
+        - Tooling / developer experience
+        - CI / build
+        - Documentation
+        - Dependency update
+        - Performance / reliability
+        - Security hardening
+        - Other
+    validations:
+      required: false
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope (optional)
+      description: What’s in/out to keep the chore bounded?
+      placeholder: |
+        In:
+        - …
+
+        Out:
+        - …
+    validations:
+      required: false
+
+  - type: textarea
+    id: plan
+    attributes:
+      label: Plan / tasks (optional)
+      description: Suggested steps or checklist.
+      placeholder: |
+        - [ ] …
+        - [ ] …
+        - [ ] …
+    validations:
+      required: false
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Completion criteria (optional)
+      description: How do we know this chore is done and successful?
+      placeholder: |
+        - CI is green
+        - Build time improves from X → Y
+        - Duplicate code removed and covered by tests
+    validations:
+      required: false
+
+  - type: textarea
+    id: test
+    attributes:
+      label: Test / verification (optional)
+      description: How to verify changes didn’t break anything.
+      placeholder: |
+        Manual:
+        - …
+
+        Automated:
+        - Unit/integration tests: …
+        - CI jobs: …
+    validations:
+      required: false
+
+  - type: textarea
+    id: risks
+    attributes:
+      label: Risks / rollout (optional)
+      description: Any risk, migration, or backwards-compatibility concerns.
+      placeholder: |
+        - Risk: …
+        - Mitigation: …
+        - Rollback plan: …
+    validations:
+      required: false
+
+  - type: textarea
+    id: links
+    attributes:
+      label: Related issues / references (optional)
+      description: Link bugs, PRs, or docs related to this chore.
+      placeholder: |
+        - Related: #…
+        - Reference: <link>
+    validations:
+      required: false

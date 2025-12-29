@@ -1,0 +1,141 @@
+name: Spike
+description: Time-boxed investigation to reduce uncertainty (design, API, feasibility).
+title: "[Spike]: "
+labels: ["spike"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Spikes are for learning & investigation (not full implementation).**
+        Keep it time-boxed, and end with a written outcome + a decision (even if the decision is “not now”).
+
+  # Keep required fields minimal so people will actually use the template.
+  - type: input
+    id: goal
+    attributes:
+      label: Goal (uncertainty to remove)
+      description: What question are we trying to answer by the end of this spike?
+      placeholder: "Determine whether we can do X with Y without breaking Z."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: timebox
+    attributes:
+      label: Timebox
+      description: Choose a maximum time to spend before stopping and writing up results.
+      options:
+        - 2 hours
+        - 4 hours
+        - 1 day
+        - 2 days
+        - 1 week
+        - Other (specify below)
+    validations:
+      required: true
+
+  - type: input
+    id: timebox_other
+    attributes:
+      label: If "Other", specify the timebox (optional)
+      placeholder: "e.g., 3 days"
+    validations:
+      required: false
+
+  # Everything below is optional (but encouraged).
+  - type: textarea
+    id: context
+    attributes:
+      label: Context / Background (optional)
+      description: A sentence or two of background so others understand why this matters.
+      placeholder: "We need X because Y is blocked / unclear / risky."
+    validations:
+      required: false
+
+  - type: textarea
+    id: key_questions
+    attributes:
+      label: Key questions (optional)
+      description: The specific questions you need answered.
+      placeholder: |
+        - What APIs / extension points exist for …?
+        - What are known constraints or failure modes?
+        - What’s the minimal demo that proves feasibility?
+    validations:
+      required: false
+
+  - type: textarea
+    id: approach
+    attributes:
+      label: Proposed approach (optional)
+      description: How will you investigate? (reading, experiments, prototype plan)
+      placeholder: |
+        - Review official docs / upstream issues
+        - Build a minimal PoC
+        - Compare 2 approaches (A vs B) and record trade-offs
+    validations:
+      required: false
+
+  - type: textarea
+    id: deliverables
+    attributes:
+      label: Deliverables / Outputs (optional)
+      description: Concrete artifacts you expect to produce.
+      placeholder: |
+        - Short write-up (link)
+        - Prototype branch / PR (link)
+        - Recommendation / decision record
+    validations:
+      required: false
+
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies / Stakeholders (optional)
+      description: People, teams, repos, or decisions this depends on (or impacts).
+      placeholder: |
+        - Depends on: #123
+        - Stakeholders: @team-handle
+    validations:
+      required: false
+
+  - type: textarea
+    id: risks
+    attributes:
+      label: Risks / Unknowns (optional)
+      description: Capture known pitfalls early so we can plan around them.
+      placeholder: |
+        - Potential API limitation: …
+        - Performance concern: …
+        - Compatibility concern: …
+    validations:
+      required: false
+
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Outcome (fill in when done)
+      description: Summarize what you learned and what you recommend. Include links.
+      placeholder: |
+        **Findings:**
+        - …
+
+        **Decision / Recommendation:**
+        - …
+
+        **Follow-ups:**
+        - Create issues: #…
+        - Next steps: …
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: done
+    attributes:
+      label: Completion checklist (optional)
+      description: Check when the spike is wrapped up.
+      options:
+        - label: Findings are documented (link in Outcome)
+        - label: A decision or clear next steps exist
+        - label: Follow-up issues created (if needed)
+        - label: Links to prototypes / references added

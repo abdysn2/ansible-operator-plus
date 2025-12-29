@@ -1,0 +1,106 @@
+name: Bug
+description: Something broken or incorrect behavior.
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please include enough detail to reproduce. If you can’t reproduce reliably, share what you observed and what you tried.
+
+  # Keep required fields minimal: what happened + what should have happened + how to reproduce.
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: What should have happened?
+      placeholder: "Autocomplete should suggest module parameters for known modules."
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: What happened instead? Include error text if any.
+      placeholder: "No suggestions appear; sometimes an exception popup is shown."
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Reproduction steps
+      description: Provide the smallest steps needed to reproduce.
+      placeholder: |
+        1) …
+        2) …
+        3) …
+    validations:
+      required: true
+
+  # Environment is important but often not known at filing time; keep it optional and structured.
+  - type: input
+    id: ide
+    attributes:
+      label: IDE + version (optional)
+      placeholder: "GoLand 2025.x / IntelliJ IDEA 2025.x"
+    validations:
+      required: false
+
+  - type: input
+    id: plugin
+    attributes:
+      label: Plugin version / commit (optional)
+      placeholder: "v0.0.0 or <commit-sha>"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: reproducibility
+    attributes:
+      label: Reproducibility (optional)
+      options:
+        - Always
+        - Often
+        - Sometimes
+        - Rarely
+        - Unable to reproduce
+    validations:
+      required: false
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: Impact / severity (optional)
+      description: Who is affected and how bad is it?
+      placeholder: |
+        - Blocks work? yes/no
+        - Workaround exists? yes/no (describe)
+        - Affects many users or only edge cases?
+    validations:
+      required: false
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs / screenshots (optional)
+      description: Paste relevant excerpts (not secrets) or attach files/screenshots.
+      placeholder: |
+        - Error message:
+        - Stack trace snippet:
+        - Screenshot:
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional context (optional)
+      description: Anything else that might help (related issues, recent changes, etc.).
+      placeholder: |
+        - Related: #…
+        - Started after upgrading: …
+        - Notes: …
+    validations:
+      required: false
