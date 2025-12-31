@@ -1,0 +1,38 @@
+<idea-plugin>
+    <id>io.github.abdysn2.ansibleoperatorplus</id>
+    <name>AnsibleOperator+</name>
+
+    <vendor email="alsaffa71994@gmail.com" url="https://github.com/abdysn2/ansible-operator-plus">
+        abdysn2
+    </vendor>
+
+    <!-- Keep description as HTML-friendly, Marketplace/IDE friendly -->
+    <description><![CDATA[
+        <p><b>AnsibleOperator+</b> helps you develop Ansible Operators inside JetBrains IDEs.</p>
+        <ul>
+          <li>YAML-first workflow for playbooks, roles, and Operator scaffolding</li>
+          <li>Editor helpers for common Ansible patterns</li>
+          <li><i>Optional</i> Jinja2 enhancements when Python support is installed</li>
+        </ul>
+    ]]></description>
+
+    <!-- Optional but useful if you aren't injecting it via Gradle changeNotes yet -->
+    <change-notes><![CDATA[
+        <p><b>0.1.0</b></p>
+        <ul>
+          <li>Initial release.</li>
+        </ul>
+    ]]></change-notes>
+
+    <!-- Keep module dependency explicit for broad compatibility -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <!-- YAML support (bundled plugin dependency) -->
+    <depends>org.jetbrains.plugins.yaml</depends>
+
+    <!-- OPTIONAL Python support:
+         If Python plugin exists, load extra registrations from the config file.
+         This keeps the plugin working in IntelliJ IDEA Community while enabling Jinja2 extras
+         in IDEs that have Python support. -->
+    <depends optional="true" config-file="ansibleoperatorplus-python.xml">Python</depends>
+</idea-plugin>

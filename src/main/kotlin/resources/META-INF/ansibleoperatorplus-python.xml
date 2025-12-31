@@ -1,0 +1,30 @@
+<idea-plugin>
+    <!-- Loaded ONLY when the Python plugin is installed:
+         <depends optional="true" config-file="ansibleoperatorplus-python.xml">Python</depends>
+         Optional dependency descriptors are the recommended way to isolate integrations. -->
+    <!-- Ref: Plugin Dependencies / optional config-file mechanism -->
+    <!-- https://plugins.jetbrains.com/docs/intellij/plugin-dependencies.html -->
+    <!-- (see citations in chat response) -->
+
+    <extensions defaultExtensionNs="com.intellij">
+
+        <!-- (1) Jinja2-in-YAML language injection
+             Implement a LanguageInjectionContributor that:
+               - targets YAML scalar/string PSI (Ansible YAML)
+               - detects Jinja markers like {{ ... }} / {% ... %} / {# ... #}
+               - injects the Jinja2 language into the relevant ranges
+
+             JetBrains: languageInjectionContributor is a high-level injection API. -->
+        <languageInjectionContributor
+                implementation="io.github.abdysn2.ansibleoperatorplus.jinja.inject.JinjaInYamlInjectionContributor"/>
+
+        <!-- (2) OPTIONAL FUTURE: Better editing for *.j2 / *.jinja files
+             Put file-type / language / completion / inspections that rely on Python/Jinja PSI here,
+             so Community users don’t break. -->
+
+        <!-- (3) OPTIONAL FUTURE: Ansible-specific Jinja helpers
+             E.g., completion for Ansible vars/filters/tests, inspections, quick-fixes, etc.
+             Keep all Python/Jinja PSI-dependent registrations in this file. -->
+
+    </extensions>
+</idea-plugin>
