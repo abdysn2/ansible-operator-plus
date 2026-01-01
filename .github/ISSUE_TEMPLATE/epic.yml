@@ -1,0 +1,149 @@
+name: Epic
+description: Big, multi-step initiative delivering a significant outcome (usually split into multiple issues).
+title: "[Epic]: "
+labels: ["epic"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Epic = a larger outcome that will be delivered via multiple issues.**
+        Keep it outcome-focused, define boundaries, and list the child work items (features/bugs/spikes).
+
+  # Minimal required info (so the template stays usable)
+  - type: input
+    id: outcome
+    attributes:
+      label: Epic outcome (what we’re trying to achieve)
+      description: One sentence describing the end state / user value.
+      placeholder: "Enable reliable Ansible YAML authoring with Jinja-aware editing and validations."
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem / context
+      description: Why does this epic exist? What pain, opportunity, or constraint drives it?
+      placeholder: |
+        - Current pain: …
+        - Who is affected: …
+        - Why now: …
+    validations:
+      required: true
+
+  - type: textarea
+    id: success
+    attributes:
+      label: Success criteria (what “done” means)
+      description: Concrete and verifiable. Include user-facing and/or engineering outcomes.
+      placeholder: |
+        - Users can …
+        - Quality bar: …
+        - Performance/compatibility constraints: …
+        - Docs/release note expectations: …
+    validations:
+      required: true
+
+  # Planning structure (optional but strongly recommended for epics)
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope (in / out)
+      description: Define boundaries to prevent scope creep.
+      placeholder: |
+        In:
+        - …
+
+        Out:
+        - …
+    validations:
+      required: false
+
+  - type: textarea
+    id: milestones
+    attributes:
+      label: Milestones / phases (optional)
+      description: Break the epic into a few checkpoints (not individual tasks).
+      placeholder: |
+        1) Discovery / design
+        2) MVP
+        3) Polish & hardening
+        4) Release & follow-ups
+    validations:
+      required: false
+
+  - type: textarea
+    id: work_items
+    attributes:
+      label: Work items (child issues checklist)
+      description: Create/link child issues and keep this list as the epic’s source of truth.
+      placeholder: |
+        - [ ] #<issue> Feature: …
+        - [ ] #<issue> Spike: …
+        - [ ] #<issue> Bug: …
+        - [ ] Docs/QA: …
+    validations:
+      required: false
+
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies / related initiatives (optional)
+      description: Links to external constraints, upstream changes, or other epics.
+      placeholder: |
+        - Depends on: #…
+        - Blocks: #…
+        - Related: #…
+        - External reference: <link>
+    validations:
+      required: false
+
+  - type: textarea
+    id: risks
+    attributes:
+      label: Risks / unknowns (optional)
+      description: List the things most likely to derail the epic and how you’ll mitigate them.
+      placeholder: |
+        - Risk: …
+          Mitigation: …
+        - Unknown: …
+          Plan to reduce: …
+    validations:
+      required: false
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority (optional)
+      description: Rough ordering to help planning.
+      options:
+        - P0 - Urgent / blocking
+        - P1 - High
+        - P2 - Medium
+        - P3 - Low / nice-to-have
+    validations:
+      required: false
+
+  - type: textarea
+    id: rollout
+    attributes:
+      label: Rollout / compatibility (optional)
+      description: Anything affecting release notes, flags, migration, or backwards compatibility.
+      placeholder: |
+        - Behind a flag? …
+        - Compatibility concerns: …
+        - Release note: …
+    validations:
+      required: false
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes / decisions log (optional)
+      description: Keep lightweight decisions here so context doesn’t get lost.
+      placeholder: |
+        - Decision (date): …
+        - Rationale: …
+        - Link: …
+    validations:
+      required: false
