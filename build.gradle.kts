@@ -1,5 +1,5 @@
 plugins {
-    kotlin("jvm") version "2.0.21"
+    id("org.jetbrains.kotlin.jvm") version "2.0.21"
     id("org.jetbrains.intellij.platform") version "2.10.5"
 }
 
@@ -21,10 +21,27 @@ dependencies {
 
         // Bundled plugin dependency (YAML)
         bundledPlugin("org.jetbrains.plugins.yaml")
-        // or: bundledPlugin("com.intellij.yaml") depending on your target IDE build;
-        // see below note.
     }
+
+    testImplementation(kotlin("test"))
 }
+
+//
+//intellijPlatform {
+//    pluginVerification {
+//        ides {
+//            // Option A: simplest - let the plugin pick a sensible set based on your build range
+//            //recommended()
+//
+//            // Option B: explicitly list IDEs (uncomment if you prefer explicit control)
+//             ide("IC", "2025.1") // IntelliJ IDEA Community
+//            // ide("IU", "2025.1") // IntelliJ IDEA Ultimate
+//            // ide("PY", "2025.1") // PyCharm (if you want to verify there too)
+//            // ide("GO", "2025.1") // GoLand
+//
+//        }
+//    }
+//}
 
 java {
     toolchain {
@@ -43,6 +60,10 @@ tasks {
     }
 
     runIde {
-        jvmArgs("-Xmx2g")
+        jvmArgs("-Xmx8g")
     }
+}
+
+tasks.test { // See 4️⃣
+    useJUnitPlatform() // JUnitPlatform for tests. See 5️⃣
 }
