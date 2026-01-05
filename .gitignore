@@ -1,21 +1,21 @@
 .gradle
 **/build/
 !**/src/**/build/
+!**/src/**/out/
+!**/src/**/bin/
 
 # Ignore Gradle GUI config
 gradle-app.setting
 
 # Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
 !gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.jar
 
 # Avoid ignore Gradle wrappper properties
 !gradle-wrapper.properties
 
 # Cache of project
 .gradletasknamecache
-
-# Gradle jdk path config
-gradle.properties
 
 # Eclipse Gradle plugin generated files
 # Eclipse Core
@@ -31,3 +31,29 @@ gradle.properties
 out/
 # IntelliJ-based IDE JVM crash logs (rare, but can appear)
 hs_err_pid*
+
+### Kotlin ###
+.kotlin
+
+### Eclipse ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### VS Code ###
+.vscode/
+
+### Mac OS ###
+.DS_Store

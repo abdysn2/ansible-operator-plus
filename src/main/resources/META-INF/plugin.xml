@@ -34,5 +34,6 @@
          If Python plugin exists, load extra registrations from the config file.
          This keeps the plugin working in IntelliJ IDEA Community while enabling Jinja2 extras
          in IDEs that have Python support. -->
-    <depends optional="true" config-file="ansibleoperatorplus-python.xml">Python</depends>
+<!--    <depends optional="true" config-file="ansibleoperatorplus-python.xml">Python</depends>-->
+
 </idea-plugin>
