@@ -1,6 +1,8 @@
 <idea-plugin>
     <id>io.github.abdysn2.ansibleoperatorplus</id>
     <name>AnsibleOperator+</name>
+    <version> 0.1.0 </version>
+
 
     <vendor email="alsaffa71994@gmail.com" url="https://github.com/abdysn2/ansible-operator-plus">
         abdysn2
@@ -35,5 +37,9 @@
          This keeps the plugin working in IntelliJ IDEA Community while enabling Jinja2 extras
          in IDEs that have Python support. -->
 <!--    <depends optional="true" config-file="ansibleoperatorplus-python.xml">Python</depends>-->
+    <extensions defaultExtensionNs="com.intellij">
+        <fileEditorProvider implementation="io.github.abdysn2.ansibleoperatorplus.editor.AoFileEditorProvider"/>
+    </extensions>
+
 
 </idea-plugin>
